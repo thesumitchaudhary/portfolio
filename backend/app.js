@@ -7,6 +7,7 @@ import contactRoutes from "./routes/contactRoutes.js";
 dotenv.config();
 
 const app = express();
+const mongoUri = process.env.MONGO_URI;
 
 // Middleware
 app.use(express.json());
@@ -17,7 +18,12 @@ app.use(cors({
 }));
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+if (!mongoUri || !/^mongodb(\+srv)?:\/\//.test(mongoUri)) {
+  console.error('❌ Invalid MONGO_URI. Use "mongodb://" or "mongodb+srv://" in backend/.env');
+  process.exit(1);
+}
+
+mongoose.connect(mongoUri)
 .then(() => console.log("✅ MongoDB connected"))
 .catch((err) => console.error("❌ MongoDB error:", err));
 

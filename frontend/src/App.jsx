@@ -3,6 +3,7 @@ import Footer from "./sections/Footer";
 import Contact from "./sections/Contact";
 import TechStack from "./sections/TechStack";
 import Experience from "./sections/Experience";
+import Blog from "./sections/Blogs";
 import Hero from "./sections/Hero";
 import ShowcaseSection from "./sections/ShowcaseSection";
 import LogoShowcase from "./sections/LogoShowcase";
@@ -16,7 +17,8 @@ const App = () => (
     <ShowcaseSection />
     {/* <LogoShowcase /> */}
     {/* <FeatureCards /> */}
-    <Experience />
+    {/* <Experience /> */}
+    <Blog className="h-90 bg-black"/>
     <TechStack />
     {/* <Testimonials /> */}
     <Contact />
